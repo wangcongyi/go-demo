@@ -39,3 +39,19 @@ func A(a *int){
   *a = 232
   fmt.Println(*a)
 }
+
+
+//GO语言版 闭包
+
+func main() {
+	f := c(23)
+	fmt.Println(f(2323))
+	fmt.Println(f(233323))
+}
+
+func c(x int) (func(y int) int) {
+    return func(y int) int {
+	    fmt.Println(&x)   //  print the same value twice
+		return x + y
+	}
+}
