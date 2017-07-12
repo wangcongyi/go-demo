@@ -33,4 +33,25 @@ func main(){
    }
    
    
+   ************************************************
+   // 使用 range 迭代映射 
+   colors := map[string]int{
+   // 相同的 key 值会报错 duplicate key "xxx" in map literal
+      "a":1,
+      "b":2,
+      "c":3,
+   }
+    // 从映射中删除一项
+     delete(colors, "a")
+   
+   for key, value := range colors {
+   //  直接打印出来 顺序并非与初始化的一致
+       fmt.Printf(key, value)     
+   }
+   
+   
+   ************************************************
+   
+   
+   
 }
