@@ -6,26 +6,26 @@ package main
 import "fmt"
 
 type user struct {
-  name   string
-  age    int
-  email  string
+	name  string
+	age   int
+	email string
 }
 
 func (u user) notify() {
-   fmt.Println(u.name,u.age,u.email)
+	fmt.Println(u.name, u.age, u.email)
 }
 
 func (u *user) changeEmail(email string) {
-  u.email = email
+	u.email = email
 }
 
-func main () {
-  bill := user{"Bill",20,"bill@email.com"}
-  bill.notify()
-  
-  // bill := &user{"bill",22,"bill111"}
-  // bill.changeEmail("bill122222")
-  // bill.notify() 
+func main() {
+	bill := user{"Bill", 20, "bill@email.com"}
+	bill.notify()
+
+	// bill := &user{"bill",22,"bill111"}
+	// bill.changeEmail("bill122222")
+	// bill.notify()
 }
 
 //  无语啊  一定要是指针接受者才会改变 。。。。。。。

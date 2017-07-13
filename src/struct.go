@@ -1,12 +1,12 @@
-//由于go语言没有没有class的概念
-  结构struct承担了面向对象的功能
+//  由于go语言没有没有class的概念
+//  结构struct承担了面向对象的功能
 
 type human struct {
   Sex  int
 }
 
 type teacher struct {
-  human 
+  human
   Name  string
   Age   int
 }
@@ -15,7 +15,7 @@ type person struct {
   Name string
   Age  int
   Contenxt struct {
-    Phone,City string 
+    Phone,City string
   }
 }
 
@@ -41,9 +41,9 @@ type B struct {
 
 func main () {
   a := A{Name:"A",B:B{Name:"B"}}
-  
+
   fmt.Println(a.name,a.B.name)
-  
+
 }
 
 
