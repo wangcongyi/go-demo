@@ -76,20 +76,4 @@ func main() {
 
 	fmt.Println(cap(n))     // 8
 	fmt.Println(len(n))     // 6
-
-
-	fmt.Println(arr1)
-	fmt.Println(arr2)
-	fmt.Println(arr3)
-	fmt.Println(arr4)
-	fmt.Println(arr5)
-	fmt.Println(arr6)
-	fmt.Println(slice1)
-	fmt.Println(slice2)
-	fmt.Println(slice3)
-	fmt.Println(slice4)
-	fmt.Println(slice5)
-	fmt.Println(slice6)
-	fmt.Println(slice7)
-
 }
