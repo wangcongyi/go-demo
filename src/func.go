@@ -49,9 +49,26 @@ func main() {
 	fmt.Println(f(233323))
 }
 
-func c(x int) (func(y int) int) {
+func c(x int) (func(y int) int) {   
     return func(y int) int {
 	    fmt.Println(&x)   //  print the same value twice
 		return x + y
 	}
 }
+
+//////    来一个简单一点的 闭包 好了  
+
+func intSeq() func() int{
+	i := 0
+	return func() int {
+		i += 1
+		return i
+	}
+}
+func main() {
+	nextInt := intSeq()
+	fmt.Println(nextInt())    // 1
+	fmt.Println(nextInt())    // 2
+	fmt.Println(nextInt())    // 3
+}
+
