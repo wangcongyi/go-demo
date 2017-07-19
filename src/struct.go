@@ -13,7 +13,7 @@ var (
 )
 
 func main() {
-  fmt.Println(v1)                  //  {1,2}
+        fmt.Println(v1)                  //  {1,2}
 	fmt.Println(v2)                  //  {1,0}
 	fmt.Println(v3)                  //  {0,0}
 	fmt.Println(v4)                  //  &{1,2}    特殊的前缀 & 返回一个指向结构体的指针。
