@@ -29,3 +29,34 @@ func main() {
 }
 
 //  无语啊  一定要是指针接受者才会改变 。。。。。。。
+
+
+
+// 嵌入类型
+package main
+
+import "fmt"
+
+type user struct {
+	name  string
+	email string
+}
+
+type admin struct {
+	user    // 嵌入类型
+	level int
+}
+
+func (u *user) notify() {
+	fmt.Println(u.name, u.email)
+}
+
+func main() {
+	ad := admin{
+	    user:  user{"king", "king.com"},
+	    level: 100,
+	}
+	ad.notify()           //  内部类型的方法会被提升到外部类型
+	ad.user.notify()      //  直接访问内部类型的方法
+}
+
