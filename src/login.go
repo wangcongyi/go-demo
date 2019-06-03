@@ -10,6 +10,11 @@ import (
 	"time"
 )
 
+type User struct {
+	UserAccount string `json:"userAccount"`
+	Pwd         string `json:"pwd"`
+}
+
 type LoginData struct {
 	Msg      string `json:"msg"`
 	TokenStr string `json:"tokenStr"`
@@ -47,11 +52,12 @@ func randToken() string {
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
-	var user map[string]interface{}
+	var user User
+	// var user map[string]interface{}  有时无法为JSON的格式声明一个结构类型，可以使用更加灵活的方式来处理
 	body, _ := ioutil.ReadAll(r.Body)
 	_ = json.Unmarshal(body, &user)
-	fmt.Println(user["userAccount"])
-	fmt.Println(user["pwd"])
+	fmt.Println(user.UserAccount)
+	fmt.Println(user.Pwd)
 
 	w.Header().Set("Content-Type", "application/json")
 	post := &Login{ // 伪造数据
