@@ -62,3 +62,37 @@ func main() {
 //  内部类型的值是一直存在的，因此还是可以直接访问内部类型的值来调用没有被提升的内部类型实现方法	
 }
 
+
+//  Mehthos and pointer indirection
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type V struct {
+	x, y float64
+}
+
+func (v V) A() float64 {
+	return math.Sqrt(v.x*v.x + v.y*v.y)
+}
+
+func A(v V) float64 {
+	return math.Sqrt(v.x*v.x + v.y*v.y)
+}
+
+func main() {
+	v := V{3, 4}
+	fmt.Println(v.A())
+	fmt.Println(A(v))
+
+	p := &V{4, 3}
+	fmt.Println(p.A())
+	fmt.Println(A(*p))
+}
+
+
+
+
