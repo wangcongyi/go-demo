@@ -9,22 +9,27 @@ package main
 import "fmt"
 
 func ping(pings chan<- string, msg string) {
-	pings <- msg
+  pings <- msg
 }
 
 func pong(pings <-chan string, pongs chan<- string) {
-	msg := <-pings
-	pongs <- msg
+  msg := <-pings
+  pongs <- msg
 }
 
 func main() {
-	pings := make(chan string, 1)
-	pongs := make(chan string, 1)
-	ping(pings, "passed message")
-	pong(pings, pongs)
-	fmt.Println(<-pongs)
+  pings := make(chan string, 1)
+  pongs := make(chan string, 1)
+  ping(pings, "passed message")
+  pong(pings, pongs)
+  fmt.Println(<-pongs)
 }
 
 
-//  缓存和非缓冲通道  堵塞问题 或者进入 asleep 状态  另写
-  
+//  缓存和非缓冲通道  堵塞问题 或者进入 asleep 状态
+//  初始化通道
+func main() {
+  //  第二个参数 10 表示该通道值在同一时刻最多可以缓冲10个元素值	
+  c1 := make(chan int, 10)
+	
+}
